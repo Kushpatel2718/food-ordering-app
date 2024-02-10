@@ -5,7 +5,7 @@ import UserTabs from "../components/layout/UserTabs";
 import toast from "react-hot-toast";
 import DeleteButton from "../components/DeleteButton";
 
-export default function categoriesPage() {
+export default function CategoriesPage() {
   const [categoryName, setCategoryName] = useState("");
   const [categories, setCategories] = useState([]);
   const { loading: profileLoading, data: profileData } = useProfile();
