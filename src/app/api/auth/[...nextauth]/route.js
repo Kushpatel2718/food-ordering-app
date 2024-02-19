@@ -97,6 +97,7 @@ import { authOptions } from "../../utils/authOptions";
 //   }
 //   return userInfo.admin;
 // }
+
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

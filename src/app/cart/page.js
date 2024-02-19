@@ -95,6 +95,7 @@ export default function CartPage() {
               <CartProduct
                 key={index}
                 product={product}
+                index={index}
                 onRemove={removeCartProduct}
               />
             ))}
@@ -107,10 +108,10 @@ export default function CartPage() {
               Total:
             </div>
             <div className="font-semibold pl-2 text-right">
-              ${subtotal}
+              ₹{subtotal}
               <br />
-              $5
-              <br />${subtotal + 5}
+              ₹5
+              <br />₹{subtotal + 5}
             </div>
           </div>
         </div>
@@ -121,7 +122,7 @@ export default function CartPage() {
               addressProps={address}
               setAddressProp={handleAddressChange}
             />
-            <button type="submit">Pay ${subtotal + 5}</button>
+            <button type="submit">Pay ₹{subtotal + 5}</button>
           </form>
         </div>
       </div>

@@ -35,8 +35,8 @@ export default function Homemenu() {
             />
           </div>
         </div>
-        <SectionHeader subHeader={"check out"} mainHeader={"Menu"} />
-        <div className="grid grid-cols-3 gap-4">
+        <SectionHeader subHeader={"check out"} mainHeader={"Best Sellers"} />
+        <div className="grid md:grid-cols-3 gap-4">
           {bestSellers?.length > 0 &&
             bestSellers.map((item) => <Menuitem key={item._id} {...item} />)}
         </div>

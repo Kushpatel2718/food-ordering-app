@@ -3,6 +3,8 @@ import clientPromise from "../../../libs/mongoConnect";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import { User } from "@/app/models/User";
+import bcrypt from "bcrypt";
+import mongoose from "mongoose";
 
 export const authOptions = {
   secret: process.env.SECRET,
@@ -21,16 +23,16 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        console.log(credentials);
-        const email = credentials?.email;
-        const password = credentials?.password;
-        console.log(email);
-        mongoose.connect(process.env.MONGO_URL);
-        const user = await User.findOne({ email });
-        if (user) {
-          return user;
-          alert("successfully logged in");
-        }
+        //console.log(credentials);
+        // const email = credentials?.email;
+        // const password = credentials?.password;
+        // console.log(email);
+        // mongoose.connect(process.env.MONGO_URL);
+        // const user = await User.findOne({ email });
+        // if (user) {
+        //   return user;
+        //   alert("successfully logged in");
+        // }
         // console.log(user);
         // const passwordOk = user && bcrypt.compareSync(password, User.password);
 
@@ -39,6 +41,20 @@ export const authOptions = {
         //   return user;
         // }
         // return null;
+        const email = credentials?.email;
+        const password = credentials?.password;
+
+        //mongoose.connect(process.env.MONGO_URL);
+        const user = await User.findOne({ email });
+        const passwordOk = user && bcrypt.compareSync(password, user.password);
+
+        if (passwordOk) {
+          console.log("inside password ok");
+          console.log(user);
+          return user;
+        }
+
+        return null;
       },
     }),
   ],
