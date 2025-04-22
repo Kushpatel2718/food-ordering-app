@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "kush-food-ordering.s3.amazonaws.com",
       },
+      {
+        protocol: "https",
+        hostname: "kushpatel-food-ordering.s3.amazonaws.com",
+      },
     ],
   },
   eslint: {

@@ -24,7 +24,7 @@ export async function POST(req) {
     }
     const buffer = Buffer.concat(chunks);
 
-    const bucket = "kush-food-ordering";
+    const bucket = "kushpatel-food-ordering";
     await s3Client.send(
       new PutObjectCommand({
         Bucket: bucket,
